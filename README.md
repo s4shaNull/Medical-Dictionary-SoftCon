@@ -49,7 +49,9 @@ and the **function1()** and **function2()** of the **Result.js** file located in
 
 ## Step 6: Run docker-compose up
 Change your working directory to Medical-Dictionary-SoftCon/ and run this command to deploy:
+
 ```
+$ cd Medical-Dictionary-SoftCon/ 
 $ sudo docker-compose up -d --build
 ```
 
