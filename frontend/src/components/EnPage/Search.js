@@ -5,7 +5,6 @@ import "../style/base.css";
 import "../style/main.css";
 import "../style/responsive.css";
 
-
 function Search(props) {
   const [items, setItems] = useState([]);
 
@@ -43,14 +42,20 @@ function Search(props) {
     if (string != "") {
       const loadData = async () => {
         // THE ADDR BELOW ISN'T FIXED
+<<<<<<< HEAD
         const response = await axios.get("http://172.20.52.174:5000/search_bar", { params: { word: string, lang: fromEng ? "en" : "vn" }, });
+=======
+        const response = await axios.get("http://192.168.1.3:5000/search_bar", {
+          params: { word: string, lang: fromEng ? "en" : "vn" },
+        });
+>>>>>>> 1d6d9aa3e92cea611fe61a0d9fd3117ae40415dc
         console.log("Response Data:", response.data);
         setItems(response.data);
-      }
+      };
       loadData();
     }
     // setSearch(string);
-    // if(string!=""){  
+    // if(string!=""){
     //   await axios
     // .get("http://127.0.0.1:5000/search_bar/", {
     //   params: {word:string, lang:fromEng ? "en" : "vn"},
@@ -80,7 +85,6 @@ function Search(props) {
   //     console.log(items)
   //   }, [items])
 
-
   const handleOnHover = (result) => {
     // console.log(result);
   };
@@ -88,12 +92,14 @@ function Search(props) {
   const handleOnSelect = (item) => {
     // THE ADDR BELOW ISN'T FIXED
     axios
+<<<<<<< HEAD
       .get("http://172.20.52.174:5000/audio", {
+=======
+      .get("http://192.168.1.3:5000/audio", {
+>>>>>>> 1d6d9aa3e92cea611fe61a0d9fd3117ae40415dc
         params: { en_word: item.en, vi_word: item.vn },
       })
-      .then((response) => {
-
-      })
+      .then((response) => {});
 
     props.setShowResult(!props.showResult);
     props.setResult({
@@ -103,8 +109,6 @@ function Search(props) {
       type_vn: `${item.word_type_vn}`,
     });
   };
-
-
 
   const handleOnFocus = () => {
     // console.log("Focused");
@@ -124,7 +128,7 @@ function Search(props) {
     );
   };
 
-  console.log(items)
+  console.log(items);
 
   return (
     <div className="header__search">
