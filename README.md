@@ -30,7 +30,7 @@ $ git clone https://github.com/s4shaNull/Medical-Dictionary-SoftCon
 ```
 
 ## Step 5: Change the IP addresses in the HTTP requests in the Search.js and Result.js files
-First, get the WSL's IPv4 address on eth0 interface using this command:
+First, get the WSL's **IPv4 address (inet)** on **eth0** interface using this command:
 ```
 $ ifconfig
 ```
@@ -38,12 +38,12 @@ The output will be like this:
 
 ![image](https://user-images.githubusercontent.com/89685724/209780540-5cf9367b-0ad2-440d-9aa1-d01f5066c591.png)
 
-Paste that IP address into the HTTP requests of the **handleOnSearch()** and **handleOnSelect()** functions of the **Search.js** file located in **frontend/src/components/EnPage/**:
+Paste that IP address into the HTTP requests of the **handleOnSearch()** and **handleOnSelect()** functions of the **Search.js** file located in **frontend/src/components/EnPage/**. You can edit the file using VSCode with the [remote wsl extension](https://www.youtube.com/watch?v=mIHprjsSO9o)
 
 ![image](https://user-images.githubusercontent.com/89685724/209781261-20131492-b847-455e-a855-b36932a21633.png)
 ![image](https://user-images.githubusercontent.com/89685724/209781216-7dfa4f52-bacc-477a-81c3-f888d5f178ff.png)
 
-and the **function1()** and **function2()** of the **Result.js** file located in **frontend/src/components/EnPage/**:
+You will have to paste the address into the **play1()** and **play2()** of the **Result.js** file located in **frontend/src/components/EnPage/** as well:
 
 ![image](https://user-images.githubusercontent.com/89685724/209781433-691cf5ff-cc9b-4e9a-99a3-cea1829cad42.png)
 
@@ -53,14 +53,6 @@ Change your working directory to Medical-Dictionary-SoftCon/ and run this comman
 ```
 $ cd Medical-Dictionary-SoftCon/ 
 $ sudo docker-compose up -d --build
-```
-
-If you want to apply new changes to the containers, run the following commands:
-```
-$ sudo docker-compose rm --all &&
-$ sudo docker-compose pull &&
-$ sudo docker-compose build --no-cache &&
-$ sudo docker-compose up -d --force-recreate &&
 ```
 
 After finishing all these steps, you can access the website via browser using the following URL:
