@@ -49,7 +49,15 @@ and the **function1()** and **function2()** of the **Result.js** file located in
 
 ## Step 6: Run docker-compose up
 ```
-sudo docker-compose up -d --build
+$ sudo docker-compose up -d --build
+```
+
+If you want to apply new changes to the containers, run the following commands:
+```
+$ sudo docker-compose rm --all &&
+$ sudo docker-compose pull &&
+$ sudo docker-compose build --no-cache &&
+$ sudo docker-compose up -d --force-recreate &&
 ```
 
 After finishing all these steps, you can access the website via browser using the following URL:
