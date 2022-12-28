@@ -1,4 +1,4 @@
-version: '3'
+version: '3.1'
 
 services:
   frontend:
@@ -7,7 +7,7 @@ services:
       - "3000:3000"
     networks:
       mynetwork:
-        ipv4_address: 172.18.0.4
+        ipv4_address: 172.19.0.4
     depends_on:
       - backend
   backend:
@@ -16,7 +16,7 @@ services:
       - "5000:5000"
     networks:
       mynetwork:
-        ipv4_address: 172.18.0.3
+        ipv4_address: 172.19.0.3
     depends_on:
       - db
   db:
@@ -28,17 +28,17 @@ services:
         MYSQL_PASSWORD: FH8tohUcr$P@OQsB       # Change this!!
         MYSQL_FLASK_USER: flask
         MYSQL_FLASK_PASSWORD: Ar1AaDH^xYBSrOs3 # Change this!!
-        HOST_IP_ADDR: 172.18.0.1               # Change this!?
+        HOST_IP_ADDR: 172.19.0.1               # Change this!?
     ports:
       - "3306:3306"
     networks:
       mynetwork:
-        ipv4_address: 172.18.0.2
-  networks:
-    mynetwork:
-      driver: bridge
-      ipam:
-        driver: default
-        config:
-          - subnet: 172.18.0.0/16
-            gateway: 172.18.0.1
+        ipv4_address: 172.19.0.2
+networks:
+  mynetwork:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.0.0/16
+          gateway: 172.19.0.1
