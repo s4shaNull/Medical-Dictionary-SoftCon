@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  frontend:
+    build: frontend/
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+  backend:
+    build: backend/
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+  db:
+    build: db/
+    environment:
+        MYSQL_ROOT_PASSWORD: iPJpIi63#15&pAZ@  # Change this!!
+        MYSQL_DATABASE: MeDict
+        MYSQL_USER: mysql
+        MYSQL_PASSWORD: FH8tohUcr$P@OQsB       # Change this!!
+        MYSQL_FLASK_USER: flask
+        MYSQL_FLASK_PASSWORD: Ar1AaDH^xYBSrOs3 # Change this!!
+        HOST_IP_ADDR: 172.18.0.1               # Change this!?
+    ports:
+      - "3306:3306"
