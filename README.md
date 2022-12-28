@@ -58,7 +58,7 @@ $ sudo docker-compose up -d --build
 
 After finishing all these steps, you can access the website via browser using the following URL:
 ```
-http://[WSL_IP_ADDR_ON_ETH0]:3000/
+http://[HOST_IP_ADDR_ON_ETH0]:3000/
 ```
 
 
