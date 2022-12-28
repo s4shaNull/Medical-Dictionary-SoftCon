@@ -35,16 +35,18 @@ First, get the machine's **IPv4 address (inet)** on **eth0** interface using thi
 ```
 $ ifconfig
 ```
-The output will be like this:
+It should be like this:
 
 ![image](https://user-images.githubusercontent.com/89685724/209780540-5cf9367b-0ad2-440d-9aa1-d01f5066c591.png)
 
 Paste that IP address into the HTTP requests of the **handleOnSearch()** and **handleOnSelect()** functions of the **Search.js** file located in **frontend/src/components/EnPage/**. If you are using WSL, you can edit the file using VSCode with the [remote wsl extension](https://www.youtube.com/watch?v=mIHprjsSO9o)
 
+It should look like this afterwards:
+
 ![image](https://user-images.githubusercontent.com/89685724/209781261-20131492-b847-455e-a855-b36932a21633.png)
 ![image](https://user-images.githubusercontent.com/89685724/209781216-7dfa4f52-bacc-477a-81c3-f888d5f178ff.png)
 
-You will have to paste the address into the **play1()** and **play2()** of the **Result.js** file located in **frontend/src/components/EnPage/** as well:
+You will have to paste the address into the **play1()** and **play2()** of the **Result.js** file located in **frontend/src/components/EnPage/** as well. It should look like this afterwards:
 
 ![image](https://user-images.githubusercontent.com/89685724/209781433-691cf5ff-cc9b-4e9a-99a3-cea1829cad42.png)
 
