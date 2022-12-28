@@ -52,7 +52,7 @@ and the **function1()** and **function2()** of the **Result.js** file located in
 sudo docker-compose up -d --build
 ```
 
-After finishing these steps, you can access the website via browser using the following URL:
+After finishing all these steps, you can access the website via browser using the following URL:
 ```
 http://[WSL_IP_ADDR_ON_ETH0]:3000/
 ```
