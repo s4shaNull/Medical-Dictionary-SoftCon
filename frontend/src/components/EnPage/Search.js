@@ -43,7 +43,7 @@ function Search(props) {
     if (string != "") {
       const loadData = async () => {
         // THE ADDR BELOW ISN'T FIXED
-        const response = await axios.get("http://172.17.204.244:5000/search_bar", { params: { word: string, lang: fromEng ? "en" : "vn" }, });
+        const response = await axios.get("http://172.20.52.174:5000/search_bar", { params: { word: string, lang: fromEng ? "en" : "vn" }, });
         console.log("Response Data:", response.data);
         setItems(response.data);
       }
@@ -88,7 +88,7 @@ function Search(props) {
   const handleOnSelect = (item) => {
     // THE ADDR BELOW ISN'T FIXED
     axios
-      .get("http://172.17.204.244:5000/audio", {
+      .get("http://172.20.52.174:5000/audio", {
         params: { en_word: item.en, vi_word: item.vn },
       })
       .then((response) => {

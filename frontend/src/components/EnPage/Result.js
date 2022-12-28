@@ -9,13 +9,13 @@ import { NavItem } from "react-bootstrap";
 export default function Result(props) {
   function play1() {
     // THE ADDR BELOW ISN'T FIXED
-    var audio1 = new Audio("http://172.17.204.244:5000/static/" + props.result.en + "1.mp3");
+    var audio1 = new Audio("http://172.20.52.174:5000/static/" + props.result.en + "1.mp3");
     audio1.play();
   }
 
   function play2() {
     // THE ADDR BELOW ISN'T FIXED
-    var audio2 = new Audio("http://172.17.204.244:5000/static/" + props.result.vn + "2.mp3");
+    var audio2 = new Audio("http://172.20.52.174:5000/static/" + props.result.vn + "2.mp3");
     audio2.play();
   }
 
