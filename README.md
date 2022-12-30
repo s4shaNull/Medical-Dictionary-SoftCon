@@ -31,7 +31,4 @@ After finishing all these steps, you can access the website via browser using th
 ```
 http://localhost:3000/
 ```
-
-
-
-
+![image](https://user-images.githubusercontent.com/84661482/210073977-a431250a-e4f7-4e44-8e6f-9c8abbaf4204.png)
