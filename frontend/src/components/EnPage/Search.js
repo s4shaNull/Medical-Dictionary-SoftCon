@@ -20,7 +20,7 @@ function Search(props) {
   // useEffect(() =>{
   //   if(search!==""){
   //      axios
-  //   .get("http://127.0.0.1:5000/search_bar/", {
+  //   .get("http://localhost:5000/search_bar/", {
   //     params: {word:search, lang:fromEng ? "en" : "vn"},
   //   })
   //   .then((response) => {
@@ -41,14 +41,10 @@ function Search(props) {
     console.log("Search", string);
     if (string != "") {
       const loadData = async () => {
-        // THE ADDR BELOW ISN'T FIXED
-<<<<<<< HEAD
-        const response = await axios.get("http://172.20.52.174:5000/search_bar", { params: { word: string, lang: fromEng ? "en" : "vn" }, });
-=======
-        const response = await axios.get("http://192.168.1.3:5000/search_bar", {
+        // THE ADDR BELOW MUST BE THE DOMAIN NAME OF THE CLOUD SERVER WHEN DEPLOYED!
+        const response = await axios.get("http://localhost:5000/search_bar", {
           params: { word: string, lang: fromEng ? "en" : "vn" },
         });
->>>>>>> 1d6d9aa3e92cea611fe61a0d9fd3117ae40415dc
         console.log("Response Data:", response.data);
         setItems(response.data);
       };
@@ -57,7 +53,7 @@ function Search(props) {
     // setSearch(string);
     // if(string!=""){
     //   await axios
-    // .get("http://127.0.0.1:5000/search_bar/", {
+    // .get("http://localhost:5000/search_bar/", {
     //   params: {word:string, lang:fromEng ? "en" : "vn"},
     // })
     // .then((response) => {
@@ -66,7 +62,7 @@ function Search(props) {
     //   setTimeout(() => console.log(items), 2000)
     //   console.log(response.data)
     // })
-    // const response = axios.get("http://127.0.0.1:5000/search_bar/", {
+    // const response = axios.get("http://localhost:5000/search_bar/", {
     //   params: {word:string, lang:fromEng ? "en" : "vn"},})
 
     //   console.log("response data", response.data)
@@ -90,13 +86,9 @@ function Search(props) {
   };
 
   const handleOnSelect = (item) => {
-    // THE ADDR BELOW ISN'T FIXED
+    // THE ADDR BELOW MUST BE THE DOMAIN NAME SERVER OF THE CLOUD SERVER WHEN DEPLOYED
     axios
-<<<<<<< HEAD
-      .get("http://172.20.52.174:5000/audio", {
-=======
-      .get("http://192.168.1.3:5000/audio", {
->>>>>>> 1d6d9aa3e92cea611fe61a0d9fd3117ae40415dc
+      .get("http://localhost:5000/audio", {
         params: { en_word: item.en, vi_word: item.vn },
       })
       .then((response) => {});

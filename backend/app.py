@@ -11,7 +11,7 @@ from os import path
 load_dotenv(find_dotenv())
 
 config = {
-    'host' : os.getenv("HOST_IP_ADDR"),
+    'host' : 'db',
     'port' : 3306,
     'user' : os.getenv("MYSQL_FLASK_USER"),
     'password' : os.getenv("MYSQL_FLASK_PASSWORD"),
@@ -30,9 +30,6 @@ def get_connection():
 
 class SearchBar(Resource):
     def get(self):
-        # if (request.environ['REMOTE_ADDR'] != os.getenv("HOST_IP_ADDR")):
-        #    return 'This API can only be accessed by the local machine!'
-
         word = request.args.get("word")
         lang = request.args.get("lang")
 
@@ -54,9 +51,6 @@ class SearchBar(Resource):
 
 class Audio(Resource):
     def get(self):
-        # if (request.environ['REMOTE_ADDR'] != os.getenv("HOST_IP_ADDR")):
-        #    return 'This API can only be accessed by the local machine!'
-
         en_word = request.args.get("en_word")
         vi_word = request.args.get("vi_word")
 

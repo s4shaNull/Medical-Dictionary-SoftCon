@@ -42,8 +42,8 @@ echo "Running additional setup scripts..."
 mysql -u root -e "ALTER USER '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD';"
 
 # Create a user for the Flask API, and grant the privileges:
-mysql -u root -e "CREATE USER '$MYSQL_FLASK_USER'@'$HOST_IP_ADDR' IDENTIFIED BY '$MYSQL_FLASK_PASSWORD';"
-mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '$MYSQL_FLASK_USER'@'$HOST_IP_ADDR' IDENTIFIED BY '$MYSQL_FLASK_PASSWORD';"
+mysql -u root -e "CREATE USER '$MYSQL_FLASK_USER'@'backend.medict' IDENTIFIED BY '$MYSQL_FLASK_PASSWORD';"
+mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO '$MYSQL_FLASK_USER'@'backend.medict' IDENTIFIED BY '$MYSQL_FLASK_PASSWORD';"
 mysql -u root -e "FLUSH PRIVILEGES;"
 
 # Alter password for root user:
