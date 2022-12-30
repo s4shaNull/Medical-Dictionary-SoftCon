@@ -9,11 +9,11 @@ An online medical dictionary developed by the SoftCon Team of VinUni.
 **Windows**: Go to [this link](https://docs.docker.com/desktop/install/windows-install/)
 
 ## Step 2: Clone this repository
-**For Linux/MacOS**:
+**Linux/MacOS**:
 ```
 $ git clone https://github.com/s4shaNull/Medical-Dictionary-SoftCon 
 ```
-**For Windows**:
+**Windows**:
 ```
 > git clone https://github.com/s4shaNull/Medical-Dictionary-SoftCon --config core.autocrlf=input
 ```
