@@ -1,5 +1,5 @@
 # Medical-Dictionary-SoftCon
-MeDict is a translation tool designed for healthcare professionals and students. It allows users to look up medical terms in both English and Vietnamese, with the option to listen to the pronunciation of the terms through text-to-speech functionality. With a user-friendly interface and comprehensive coverage of medical terminology, MeDict aims to improve communication and understanding in multilingual medical settings like VinMec. The tool is constantly updated to ensure the accuracy and relevance of its content.
+MeDict is a translation tool designed for healthcare professionals and students. It allows users to look up medical terms in both English and Vietnamese, with the option to listen to the pronunciation of the terms through text-to-speech functionality. With a user-friendly interface and comprehensive coverage of medical terminology, MeDict aims to improve communication and understanding in multilingual medical settings like VinUniversity or VinMec. The tool is constantly updated to ensure the accuracy and relevance of its content.
 
 ## Step 1: Install Docker Desktop
 **Linux**: Go to [this link](https://docs.docker.com/desktop/install/linux-install/)
