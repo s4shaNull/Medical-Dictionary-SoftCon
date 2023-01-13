@@ -78,7 +78,6 @@
 
 # if __name__ == "__main__":
 #     app.run(debug=True, host='0.0.0.0')
-
 import mariadb
 import MySQLdb
 import os
@@ -98,11 +97,11 @@ from sqlalchemy.orm import sessionmaker
 load_dotenv(find_dotenv())
 
 config = {
-    'host' : "127.0.0.1",
+    'host' : 'db',
     'port' : 3306,
-    'user' : "root",
-    'password' : "mariadb_Hanoi2",
-    'database' : "MeDict"
+    'user' : os.getenv("MYSQL_FLASK_USER"),
+    'password' : os.getenv("MYSQL_FLASK_PASSWORD"),
+    'database' : os.getenv("MYSQL_DATABASE")
 }
 
 app = Flask(__name__, static_url_path='/static/', static_folder='static/')
@@ -119,8 +118,10 @@ Base = declarative_base()
 class Dict(Base):
     __tablename__ = 'dict'
     idx = Column(Integer, primary_key=True)
-    eng = Column(String)
-    vn = Column(String)
+    en = Column(String(length=255))
+    vn = Column(String(length=255))
+    word_type = Column(String(length=50))
+    word_type_vn = Column(String(length=50))
 
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
@@ -135,7 +136,7 @@ class SearchBar(Resource):
             return jsonify([])
         else:
             if lang == "en":
-                query = session.query(Dict).filter(Dict.eng.like(f"{word}%")).limit(20)
+                query = session.query(Dict).filter(Dict.en.like(f"{word}%")).limit(20)
             if lang == "vn":
                 query = session.query(Dict).filter(Dict.vn.like(f"{word}%")).limit(20)
 
