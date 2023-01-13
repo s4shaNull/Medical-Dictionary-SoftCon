@@ -23,7 +23,7 @@ export default function Result(props) {
   function play1() {
     // THE ADDR BELOW MUST BE THE DOMAIN NAME OF THE CLOUD SERVER WHEN DEPLOYED!
     var audio1 = new Audio(
-      "http://localhost:5000/static/" + props.result.en + "1.mp3"
+      "http://103.82.24.40:5000/static/" + props.result.en + "1.mp3"
     );
     audio1.play();
   }
@@ -31,7 +31,7 @@ export default function Result(props) {
   function play2() {
     // THE ADDR BELOW MUST BE THE DOMAIN NAME OF THE CLOUD SERVER WHEN DEPLOYED!
     var audio2 = new Audio(
-      "http://localhost:5000/static/" + props.result.vn + "2.mp3"
+      "http://103.82.24.40:5000/static/" + props.result.vn + "2.mp3"
     );
     audio2.play();
   }
