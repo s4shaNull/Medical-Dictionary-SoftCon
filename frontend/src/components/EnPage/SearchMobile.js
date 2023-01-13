@@ -24,9 +24,12 @@ function SearchMobile(props) {
     if (string != "") {
       const loadData = async () => {
         // THE ADDR BELOW MUST BE THE DOMAIN NAME OF THE CLOUD SERVER WHEN DEPLOYED!
-        const response = await axios.get("http://localhost:5000/search_bar", {
-          params: { word: string, lang: fromEng ? "en" : "vn" },
-        });
+        const response = await axios.get(
+          "http://103.82.24.40:5000/search_bar",
+          {
+            params: { word: string, lang: fromEng ? "en" : "vn" },
+          }
+        );
         console.log("Response Data:", response.data);
         setItems(response.data);
       };
@@ -41,7 +44,7 @@ function SearchMobile(props) {
   const handleOnSelect = (item) => {
     // THE ADDR BELOW MUST BE THE DOMAIN NAME SERVER OF THE CLOUD SERVER WHEN DEPLOYED
     axios
-      .get("http://localhost:5000/audio", {
+      .get("http://103.82.24.40:5000/audio", {
         params: { en_word: item.en, vi_word: item.vn },
       })
       .then((response) => {});
