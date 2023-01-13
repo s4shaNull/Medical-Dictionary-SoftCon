@@ -3,5 +3,10 @@ flask_restful
 flask_cors
 gtts
 
+sqlalchemy
+
 mariadb
 python-dotenv
+mysql-connector-python
+mysqlclient
+flask-sqlalchemy
