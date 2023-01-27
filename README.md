@@ -24,7 +24,7 @@ Change your working directory to Medical-Dictionary-SoftCon/ and run this comman
 
 ```
 > cd Medical-Dictionary-SoftCon/ 
-> docker-compose up -d --build
+> docker compose up -d --build
 ```
 
 After finishing all these steps, you can access the website via browser using the following URL:
