@@ -1,5 +1,10 @@
 from flask_restful import Resource
 from sqlalchemy.orm import sessionmaker
+from flask import Flask, request, jsonify, session
+from gtts import gTTS
+from os import path
+from models import Dict, session
+
 
 class SearchBar(Resource):
     def get(self):

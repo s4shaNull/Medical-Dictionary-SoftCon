@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_restful import Api
 from flask_cors import CORS
-
 from controllers import SearchBar
 from controllers import Audio
 
