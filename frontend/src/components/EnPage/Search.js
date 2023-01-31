@@ -1,39 +1,12 @@
-import axios from "axios";
+const axios = require("axios");
 import React, { useEffect, useState } from "react";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import "../style/base.css";
 import "../style/main.css";
-import "../style/responsive.css";
+import "../style/responsive.css"
 
 function Search(props) {
   const [items, setItems] = useState([]);
-
-  // const [, updateState] = React.useState()
-  // const forceUpdate = React.useCallback(()=> updateState({}),[])
-
-  // useEffect(() => {
-  //   forceUpdate();
-  // })
-
-  // const [search,setSearch] = useState("")
-
-  // useEffect(() =>{
-  //   if(search!==""){
-  //      axios
-  //   .get("http://localhost:5000/search_bar/", {
-  //     params: {word:search, lang:fromEng ? "en" : "vn"},
-  //   })
-  //   .then((response) => {
-  //     setItems(response.data)
-  //   })
-  // }
-  // }, [search])
-
-  // useEffect(() => {
-  //   console.log(items)
-  //   setItems(items)
-  // }, [items])
-
   const fromEng = props.fromEng;
   // note: the id field is mandatory
 
@@ -50,36 +23,8 @@ function Search(props) {
       };
       loadData();
     }
-    // setSearch(string);
-    // if(string!=""){
-    //   await axios
-    // .get("http://localhost:5000/search_bar/", {
-    //   params: {word:string, lang:fromEng ? "en" : "vn"},
-    // })
-    // .then((response) => {
-    //   console.log(response.data)
-    //   setItems(response.data)
-    //   setTimeout(() => console.log(items), 2000)
-    //   console.log(response.data)
-    // })
-    // const response = axios.get("http://localhost:5000/search_bar/", {
-    //   params: {word:string, lang:fromEng ? "en" : "vn"},})
-
-    //   console.log("response data", response.data)
-    //   setItems(response.data)
-    //   console.log(items)
-
-    // }
   };
 
-  // useEffect(() => { // this hook will get called everytime when myArr has changed
-  //   // perform some action which will get fired everytime when myArr gets updated
-
-  //   }, [search])
-
-  //  useEffect(() => {
-  //     console.log(items)
-  //   }, [items])
 
   const handleOnHover = (result) => {
     // console.log(result);
@@ -91,7 +36,7 @@ function Search(props) {
       .get("http://103.82.24.40:5000/audio", {
         params: { en_word: item.en, vi_word: item.vn },
       })
-      .then((response) => {});
+      .then((response) => { });
 
     props.setShowResult(!props.showResult);
     props.setResult({
