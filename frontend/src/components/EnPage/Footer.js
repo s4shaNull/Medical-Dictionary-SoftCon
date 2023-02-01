@@ -6,14 +6,16 @@ import "../style/responsive.css";
 
 import React from "react";
 
-export default function Footer() {
+export default function Footer(props) {
   return (
     <footer className="footer-bot">
       <div className="footer-navbar">
         <div className="col-xs-9 footer-navbar-menu">
           <ul>
             <li>
-              <a href="#searching">Back to the top</a>
+              <a href="#searching">
+                {props.getTranslation("back-to-top", props.language)}
+              </a>
             </li>
           </ul>
         </div>

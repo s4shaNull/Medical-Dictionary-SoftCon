@@ -48,11 +48,13 @@ export default function Result(props) {
               >
                 <i className="fa-solid fa-xmark" />
               </div>
-              Search Result
+              {props.getTranslation("result", props.language)}
             </header>
             <section className="section-item section-search-result">
               <div className="result-item">
-                <div class="text-center result-img-btn">Display Image</div>
+                <div class="text-center result-img-btn">
+                  {props.getTranslation("display-image", props.language)}
+                </div>
                 {/* <figure class="figure result-img">
                     <img
                       src="../SoftCon_Frontend/assets/img/acinic_img.jpg"

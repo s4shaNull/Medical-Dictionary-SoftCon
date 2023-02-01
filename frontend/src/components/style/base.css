@@ -115,3 +115,7 @@ body.disabled-scroll {
 .text-white {
   color: var(--white-color);
 }
+
+.red-background {
+  background-color: var(--red-vinuni-color) !important;
+}

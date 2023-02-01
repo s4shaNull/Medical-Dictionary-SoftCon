@@ -21,7 +21,7 @@ export default function Home(props) {
 
   return (
     <header className="header" id="searching">
-      <NavBar />
+      <NavBar {...props} />
       <DictLang {...props} />
       <Search {...props} items={items} setItems={setItems} />
       {(() => {

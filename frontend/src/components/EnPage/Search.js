@@ -42,9 +42,12 @@ function Search(props) {
     if (string != "") {
       const loadData = async () => {
         // THE ADDR BELOW MUST BE THE DOMAIN NAME OF THE CLOUD SERVER WHEN DEPLOYED!
-        const response = await axios.get("http://103.82.24.40:5000/search_bar", {
-          params: { word: string, lang: fromEng ? "en" : "vn" },
-        });
+        const response = await axios.get(
+          "http://103.82.24.40:5000/search_bar",
+          {
+            params: { word: string, lang: fromEng ? "en" : "vn" },
+          }
+        );
         console.log("Response Data:", response.data);
         setItems(response.data);
       };
@@ -124,7 +127,9 @@ function Search(props) {
 
   return (
     <div className="header__search">
-      <h3 className="header__search__text">Start your search!</h3>
+      <h3 className="header__search__text">
+        {props.getTranslation("search", props.language)}
+      </h3>
       <div
         className="header__search__btn"
         onClick={() => {

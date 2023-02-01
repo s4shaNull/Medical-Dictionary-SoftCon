@@ -4,6 +4,7 @@ import Home from "./components/EnPage/Home";
 import Footer from "./components/EnPage/Footer";
 import Result from "./components/EnPage/Result";
 import Test from "./components/Test";
+import { getTranslation } from "./components/utils";
 
 import "./components/style/base.css";
 import "./components/style/main.css";
@@ -12,7 +13,13 @@ import "./components/style/responsive.css";
 function App() {
   const [showResult, setShowResult] = useState(false);
   const [showSearchMobile, setShowSearchMobile] = useState(false);
+  const [showWebLang, setShowWebLang] = useState(true);
 
+  // control web laguage
+  const languages = ["en", "vn"];
+  const [language, setLanguage] = useState("en");
+
+  // formate results
   const [result, setResult] = useState({
     en: "",
     vn: "",
@@ -45,8 +52,14 @@ function App() {
         handleUnicodeToChar={unicodeToChar}
         showSearchMobile={showSearchMobile}
         setShowSearchMobile={setShowSearchMobile}
+        getTranslation={getTranslation}
+        showWebLang={showWebLang}
+        setShowWebLang={setShowWebLang}
+        languages={languages}
+        language={language}
+        setLanguage={setLanguage}
       />
-      <Footer />
+      <Footer language={language} getTranslation={getTranslation} />
       <Result
         showResult={showResult}
         setShowResult={setShowResult}
@@ -54,6 +67,8 @@ function App() {
         setResult={setResult}
         fromEng={fromEng}
         setFromEng={setFromEng}
+        getTranslation={getTranslation}
+        language={language}
       />
     </>
   );

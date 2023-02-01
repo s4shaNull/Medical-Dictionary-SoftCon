@@ -6,7 +6,7 @@ import logo from "../img/logo_vinuni_white.png";
 
 import React from "react";
 
-function NavBar() {
+function NavBar(props) {
   return (
     <div className="header-top">
       <div className="wide">
@@ -21,36 +21,77 @@ function NavBar() {
                 href="#searching"
                 className="header__navbar-item border-choosen"
               >
-                MEDICAL DICTIONARY
+                {props.getTranslation("title", props.language)}
               </a>
               {/* <a class="header__navbar-item">HISTORY</a>          */}
             </div>
           </div>
-          <div className="header__weblang">
+          <div
+            className="header__weblang"
+            onClick={() => {
+              props.setShowWebLang(!props.showWebLang);
+              console.log(props.showWebLang);
+            }}
+          >
             <div className="header__weblang-item header__weblang-menu">
               <i className="header__weblang-menu-icon fas fa-bars" />
               <i className="header__weblang-globe-icon fas fa-globe" />
             </div>
-            <div className="header__weblang-sub">
-              <div className="header__weblang-sub-list">
-                <input
-                  type="radio"
-                  defaultChecked=""
-                  id="lang1"
-                  name="selection"
-                  hidden="true"
-                />
-                <label htmlFor="lang1" className="header__weblang-sub-button">
-                  <a href="index.html" className="text-white">
-                    English
-                  </a>
-                </label>
-                <input type="radio" id="lang2" name="selection" hidden="true" />
-                <label htmlFor="lang2" className="header__weblang-sub-button">
-                  <a href="index_vn.html">Vietnamese</a>
-                </label>
+
+            {props.showWebLang && (
+              <div className="header__weblang-sub">
+                <div className="header__weblang-sub-list">
+                  <ul>
+                    {props.languages.map((language) => {
+                      if (props.language === language) {
+                        return (
+                          <li key={props.language}>
+                            <input
+                              type="radio"
+                              id="lang1"
+                              name="selection"
+                              hidden="true"
+                            />
+                            <label
+                              htmlFor="lang1"
+                              className="header__weblang-sub-button red-background"
+                            >
+                              <a className="text-white">
+                                {props.getTranslation(language, props.language)}
+                              </a>
+                            </label>
+                          </li>
+                        );
+                      }
+                      return (
+                        <li
+                          key={props.language}
+                          onClick={() => {
+                            props.setLanguage(language);
+                            console.log(props.language);
+                          }}
+                        >
+                          <input
+                            type="radio"
+                            id="lang1"
+                            name="selection"
+                            hidden="true"
+                          />
+                          <label
+                            htmlFor="lang1"
+                            className="header__weblang-sub-button"
+                          >
+                            <a>
+                              {props.getTranslation(language, props.language)}
+                            </a>
+                          </label>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

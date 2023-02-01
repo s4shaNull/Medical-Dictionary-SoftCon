@@ -5,28 +5,28 @@ import "../style/responsive.css";
 
 import React from "react";
 
-function DictLang({ fromEng, handleClick }) {
+function DictLang(props) {
   return (
     <div className="header__dictlang">
       <div className="header__dictlang-item">
-        {fromEng ? (
+        {props.fromEng ? (
           <h6 className="header__dictlang-item-title" id="header__dictlang-en">
-            English
+            {props.getTranslation("en", props.language)}
           </h6>
         ) : (
           <h6 className="header__dictlang-item-title" id="header__dictlang-vn">
-            Vietnamese
+            {props.getTranslation("vn", props.language)}
           </h6>
         )}
       </div>
       <div className="header__dictlang-item">
-        {fromEng ? (
+        {props.fromEng ? (
           <h6 className="header__dictlang-item-title" id="header__dictlang-vn">
-            Vietnamese
+            {props.getTranslation("vn", props.language)}
           </h6>
         ) : (
           <h6 className="header__dictlang-item-title" id="header__dictlang-en">
-            English
+            {props.getTranslation("en", props.language)}
           </h6>
         )}
       </div>
@@ -34,7 +34,7 @@ function DictLang({ fromEng, handleClick }) {
       <button
         className="header__dictlang-btn"
         href="javascript:SwapDivsWithClick()"
-        onClick={handleClick}
+        onClick={props.handleClick}
       >
         <i className="header__dictlang-btn-icon fas fa-right-left" />
       </button>
