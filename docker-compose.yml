@@ -1,25 +1,6 @@
 version: '3.1'
 
 services:
-  frontend:
-    build: frontend/
-    hostname: frontend
-    ports:
-      - "3000:3000"
-    networks:
-      - mynetwork
-    depends_on:
-      - backend
-  backend:
-    build: backend/
-    container_name: backend
-    hostname: backend
-    ports:
-      - "5000:5000"
-    networks:
-      - mynetwork
-    depends_on:
-      - db
   db:
     build: db/
     hostname: db
@@ -34,6 +15,25 @@ services:
       - "3306:3306"
     networks:
       - mynetwork
+  backend:
+    build: backend/
+    container_name: backend
+    hostname: backend
+    ports:
+      - "5000:5000"
+    networks:
+      - mynetwork
+    depends_on:
+      - db
+  frontend:
+    build: frontend/
+    hostname: frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - mynetwork
+    depends_on:
+      - backend
 networks:
   mynetwork:
     name: medict
