@@ -1,9 +1,9 @@
-const axios = require("axios");
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import "../style/base.css";
 import "../style/main.css";
-import "../style/responsive.css"
+import "../style/responsive.css";
 
 function Search(props) {
   const [items, setItems] = useState([]);
@@ -15,19 +15,15 @@ function Search(props) {
     if (string != "") {
       const loadData = async () => {
         // THE ADDR BELOW MUST BE THE DOMAIN NAME OF THE CLOUD SERVER WHEN DEPLOYED!
-        const response = await axios.get(
-          "http://103.82.24.40:5000/search_bar",
-          {
-            params: { word: string, lang: fromEng ? "en" : "vn" },
-          }
-        );
+        const response = await axios.get("http://localhost:5000/search_bar", {
+          params: { word: string, lang: fromEng ? "en" : "vn" },
+        });
         console.log("Response Data:", response.data);
         setItems(response.data);
       };
       loadData();
     }
   };
-
 
   const handleOnHover = (result) => {
     // console.log(result);
@@ -36,10 +32,10 @@ function Search(props) {
   const handleOnSelect = (item) => {
     // THE ADDR BELOW MUST BE THE DOMAIN NAME SERVER OF THE CLOUD SERVER WHEN DEPLOYED
     axios
-      .get("http://103.82.24.40:5000/audio", {
+      .get("http://localhost:5000/audio", {
         params: { en_word: item.en, vi_word: item.vn },
       })
-      .then((response) => { });
+      .then((response) => {});
 
     props.setShowResult(!props.showResult);
     props.setResult({

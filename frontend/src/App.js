@@ -13,7 +13,7 @@ import "./components/style/responsive.css";
 function App() {
   const [showResult, setShowResult] = useState(false);
   const [showSearchMobile, setShowSearchMobile] = useState(false);
-  const [showWebLang, setShowWebLang] = useState(true);
+  const [showWebLang, setShowWebLang] = useState(false);
 
   // control web laguage
   const languages = ["en", "vn"];

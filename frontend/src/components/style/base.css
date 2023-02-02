@@ -119,3 +119,7 @@ body.disabled-scroll {
 .red-background {
   background-color: var(--red-vinuni-color) !important;
 }
+
+.margin-top {
+  margin-top: 50% !important;
+}

@@ -9,23 +9,67 @@ function DictLang(props) {
   return (
     <div className="header__dictlang">
       <div className="header__dictlang-item">
-        {props.fromEng ? (
-          <h6 className="header__dictlang-item-title" id="header__dictlang-en">
+        {props.language === "en" ? (
+          props.fromEng ? (
+            <h6
+              className="header__dictlang-item-title"
+              id="header__dictlang-en"
+            >
+              {props.getTranslation("en", props.language)}
+            </h6>
+          ) : (
+            <h6
+              className="header__dictlang-item-title"
+              id="header__dictlang-vn"
+            >
+              {props.getTranslation("vn", props.language)}
+            </h6>
+          )
+        ) : props.fromEng ? (
+          <h6
+            className="header__dictlang-item-title margin-top"
+            id="header__dictlang-en"
+          >
             {props.getTranslation("en", props.language)}
           </h6>
         ) : (
-          <h6 className="header__dictlang-item-title" id="header__dictlang-vn">
+          <h6
+            className="header__dictlang-item-title margin-top"
+            id="header__dictlang-vn"
+          >
             {props.getTranslation("vn", props.language)}
           </h6>
         )}
       </div>
       <div className="header__dictlang-item">
-        {props.fromEng ? (
-          <h6 className="header__dictlang-item-title" id="header__dictlang-vn">
+        {props.language === "en" ? (
+          props.fromEng ? (
+            <h6
+              className="header__dictlang-item-title"
+              id="header__dictlang-vn"
+            >
+              {props.getTranslation("vn", props.language)}
+            </h6>
+          ) : (
+            <h6
+              className="header__dictlang-item-title"
+              id="header__dictlang-en"
+            >
+              {props.getTranslation("en", props.language)}
+            </h6>
+          )
+        ) : props.fromEng ? (
+          <h6
+            className="header__dictlang-item-title margin-top"
+            id="header__dictlang-vn"
+          >
             {props.getTranslation("vn", props.language)}
           </h6>
         ) : (
-          <h6 className="header__dictlang-item-title" id="header__dictlang-en">
+          <h6
+            className="header__dictlang-item-title margin-top"
+            id="header__dictlang-en"
+          >
             {props.getTranslation("en", props.language)}
           </h6>
         )}
