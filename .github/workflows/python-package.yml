@@ -20,7 +20,7 @@ jobs:
         pip install flask_restful
         pip install flask
         pip install sqlalchemy
-        pip instal gtts
+        pip install gtts
 
     - name: Run tests
       run: |
