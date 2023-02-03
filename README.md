@@ -17,7 +17,7 @@ $ git clone https://github.com/s4shaNull/Medical-Dictionary-SoftCon --config cor
 ```
 > git clone https://github.com/s4shaNull/Medical-Dictionary-SoftCon --config core.autocrlf=true
 ```
-The **--config core.autocrlf=input** option is required since line endings between Windows and Linux/macOS are different.
+The **--config core.autocrlf** option is required since line endings between Windows and Linux/macOS are different.
 
 ## Step 3: Run docker-compose up
 Change your working directory to Medical-Dictionary-SoftCon/ and run this command to deploy:
