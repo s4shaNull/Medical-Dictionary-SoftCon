@@ -5,6 +5,8 @@ import os
 from dotenv import load_dotenv, find_dotenv
 from retry import retry
 from contextlib import contextmanager
+from flask import current_app
+
 
 load_dotenv(find_dotenv())
 
@@ -19,7 +21,7 @@ config = {
 @retry(tries=5, delay=1)
 def connect_to_db():
     engine_name = f"mariadb://{config['user']}:{config['password']}@{config['host']}:{config['port']}/{config['database']}"
-    engine = create_engine(engine_name) #'mariadb://username:password@localhost:3306/database'
+    engine = create_engine(engine_name, pool_pre_ping=True) #'mariadb://username:password@localhost:3306/database'
     conn = engine.connect()
     return conn
 
@@ -39,22 +41,6 @@ class Dict(Base):
     word_type_vn = Column(String(length=50))
 
 Base.metadata.create_all(bind=engine)
-#Session = sessionmaker(bind=engine)
+# Session = sessionmaker(bind=engine)
 # session = Session()
 
-@contextmanager
-def session_scope():
-    #self.db_engine = create_engine(self.db_config, pool_pre_ping=True) # echo=True if needed to see background SQL        
-    Session = sessionmaker(bind=engine)
-    session = Session()
-    try:
-        # this is where the "work" happens!
-        yield session
-        # always commit changes!
-        session.commit()
-    except:
-        # if any kind of exception occurs, rollback transaction
-        session.rollback()
-        raise
-    finally:
-        session.close()
