@@ -15,8 +15,13 @@ jobs:
       with:
         ref: khoi_test
 
+    - name: Install dependencies
+      run: |
+        pip install flask_restful
+
     - name: Run tests
       run: |
         # Run your test command here. For example:
         python backend/test.py
+
 
