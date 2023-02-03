@@ -18,6 +18,8 @@ jobs:
     - name: Install dependencies
       run: |
         pip install flask_restful
+        pip install flask
+        pip install sqlalchemy
 
     - name: Run tests
       run: |
