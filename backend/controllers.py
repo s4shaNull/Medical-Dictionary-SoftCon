@@ -14,12 +14,13 @@ class SearchBar(Resource):
         if word == "" or lang == "":
             return jsonify([])
         else:
-            session = Session()
-            if lang == "en":
-                query = session.query(Dict).filter(Dict.en.like(f"{word}%")).limit(20)
-            if lang == "vn":
-                query = session.query(Dict).filter(Dict.vn.like(f"{word}%")).limit(20)
-            session.close()
+            query = None
+            with session_scope() as session:
+                if lang == "en":
+                    query = session.query(Dict).filter(Dict.en.like(f"{word}%")).limit(20)
+                if lang == "vn":
+                    query = session.query(Dict).filter(Dict.vn.like(f"{word}%")).limit(20)
+         
             # Convert the query object to a list of dictionaries
             result = [{k: v for k, v in row.__dict__.items() if k != '_sa_instance_state'} for row in query]
             return jsonify(result)
@@ -33,9 +34,10 @@ class Audio(Resource):
             return False
        
         else:
-            session = Session()
-            query = session.query(Dict).filter(Dict.en == en_word).first()
-            session.close()
+            query = None
+            with session_scope() as session:
+                query = session.query(Dict).filter(Dict.en == en_word).first()
+            
             if query is None:
                 return "Word not found in the database."
             else:

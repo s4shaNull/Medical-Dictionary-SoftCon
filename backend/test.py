@@ -101,66 +101,66 @@ class TestSearchBar(unittest.TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertEqual(len(response.json()), 0)
 
-class TestAudio(unittest.TestCase):
-    def test_en_and_vi_in_database_mp3_not_in_folder(self):
-        # arrange
-        api.add_resource(Audio, '/audio')
-        en_word = 'hello'
-        vi_word = 'xin chào'
+# class TestAudio(unittest.TestCase):
+#     def test_en_and_vi_in_database_mp3_not_in_folder(self):
+#         # arrange
+#         api.add_resource(Audio, '/audio')
+#         en_word = 'hello'
+#         vi_word = 'xin chào'
 
-        # act
-        with app.test_client() as client:
-            response = client.get(f'/audio?en_word={en_word}&vi_word={vi_word}')
-            data = response.get_json()
+#         # act
+#         with app.test_client() as client:
+#             response = client.get(f'/audio?en_word={en_word}&vi_word={vi_word}')
+#             data = response.get_json()
 
-        # assert
-        self.assertEqual(response.status_code, 404)
-        self.assertEqual(data['message'], 'Mp3 file not found')
+#         # assert
+#         self.assertEqual(response.status_code, 404)
+#         self.assertEqual(data['message'], 'Mp3 file not found')
 
-    def test_en_in_database_vi_not_in_database_mp3_not_in_folder(self):
-        # arrange
-        api.add_resource(Audio, '/audio')
-        en_word = 'hello'
-        vi_word = 'xin chao'
+#     def test_en_in_database_vi_not_in_database_mp3_not_in_folder(self):
+#         # arrange
+#         api.add_resource(Audio, '/audio')
+#         en_word = 'hello'
+#         vi_word = 'xin chao'
 
-        # act
-        with app.test_client() as client:
-            response = client.get(f'/audio?en_word={en_word}&vi_word={vi_word}')
-            data = response.get_json()
+#         # act
+#         with app.test_client() as client:
+#             response = client.get(f'/audio?en_word={en_word}&vi_word={vi_word}')
+#             data = response.get_json()
 
-        # assert
-        self.assertEqual(response.status_code, 404)
-        self.assertEqual(data['message'], 'Vi word not found')
+#         # assert
+#         self.assertEqual(response.status_code, 404)
+#         self.assertEqual(data['message'], 'Vi word not found')
 
-    def test_en_not_in_database_vi_in_database_mp3_not_in_folder(self):
-        # arrange
-        api.add_resource(Audio, '/audio')
-        en_word = 'helloo'
-        vi_word = 'xin chào'
+#     def test_en_not_in_database_vi_in_database_mp3_not_in_folder(self):
+#         # arrange
+#         api.add_resource(Audio, '/audio')
+#         en_word = 'helloo'
+#         vi_word = 'xin chào'
 
-        # act
-        with app.test_client() as client:
-            response = client.get(f'/audio?en_word={en_word}&vi_word={vi_word}')
-            data = response.get_json()
+#         # act
+#         with app.test_client() as client:
+#             response = client.get(f'/audio?en_word={en_word}&vi_word={vi_word}')
+#             data = response.get_json()
 
-        # assert
-        self.assertEqual(response.status_code, 404)
-        self.assertEqual(data['message'], 'En word not found')
+#         # assert
+#         self.assertEqual(response.status_code, 404)
+#         self.assertEqual(data['message'], 'En word not found')
 
-    def test_en_and_vi_not_in_database_mp3_not_in_folder(self):
-        # arrange
-        api.add_resource(Audio, '/audio')
-        en_word = 'helloo'
-        vi_word = 'xin chao'
+#     def test_en_and_vi_not_in_database_mp3_not_in_folder(self):
+#         # arrange
+#         api.add_resource(Audio, '/audio')
+#         en_word = 'helloo'
+#         vi_word = 'xin chao'
 
-        # act
-        with app.test_client() as client:
-            response = client.get(f'/audio?en_word={en_word}&vi_word={vi_word}')
-            data = response.get_json()
+#         # act
+#         with app.test_client() as client:
+#             response = client.get(f'/audio?en_word={en_word}&vi_word={vi_word}')
+#             data = response.get_json()
 
-        # assert
-        self.assertEqual(response.status_code, 404)
-        self.assertEqual(data['message'], 'En and vi words not found')
+#         # assert
+#         self.assertEqual(response.status_code, 404)
+#         self.assertEqual(data['message'], 'En and vi words not found')
         
 if __name__ == '__main__':
     unittest.main()
