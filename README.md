@@ -13,10 +13,6 @@ MeDict is a translation tool designed for healthcare professionals and students.
 ```
 $ git clone https://github.com/s4shaNull/Medical-Dictionary-SoftCon --config core.autocrlf=input
 ```
-**Windows**:
-```
-> git clone https://github.com/s4shaNull/Medical-Dictionary-SoftCon --config core.autocrlf=true
-```
 The **--config core.autocrlf** option is required since line endings between Windows and Linux/macOS are different.
 
 ## Step 3: Run docker-compose up
