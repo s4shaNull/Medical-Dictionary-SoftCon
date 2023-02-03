@@ -79,7 +79,7 @@ function Search(props) {
           onHover={handleOnHover}
           onSelect={handleOnSelect}
           onFocus={handleOnFocus}
-          inputDebounce={0}
+          inputDebounce={300}
           autoFocus
           onClear={handleOnClear}
           formatResult={formatResult}
