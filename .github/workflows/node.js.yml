@@ -34,7 +34,7 @@ jobs:
       run: npm ci  
       
     - name: Building ...
-      working-directory: frontend\
+      working-directory: frontend
       env:
         CI: false
       run: npm run build --if-present
