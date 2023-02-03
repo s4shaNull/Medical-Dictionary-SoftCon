@@ -11,14 +11,12 @@ function Search(props) {
   // note: the id field is mandatory
 
   const handleOnSearch = (string) => {
-    console.log("Search", string);
     if (string != "") {
       const loadData = async () => {
         // THE ADDR BELOW MUST BE THE DOMAIN NAME OF THE CLOUD SERVER WHEN DEPLOYED!
         const response = await axios.get("http://localhost:5000/search_bar", {
           params: { word: string, lang: fromEng ? "en" : "vn" },
         });
-        console.log("Response Data:", response.data);
         setItems(response.data);
       };
       loadData();
@@ -63,8 +61,6 @@ function Search(props) {
       </>
     );
   };
-
-  console.log(items);
 
   return (
     <div className="header__search">
