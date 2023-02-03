@@ -9,7 +9,6 @@ MeDict is a translation tool designed for healthcare professionals and students.
 **Windows**: Go to [this link](https://docs.docker.com/desktop/install/windows-install/)
 
 ## Step 2: Clone this repository
-**Linux/MacOS**:
 ```
 $ git clone https://github.com/s4shaNull/Medical-Dictionary-SoftCon --config core.autocrlf=input
 ```
