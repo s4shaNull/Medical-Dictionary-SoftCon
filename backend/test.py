@@ -6,8 +6,8 @@ from flask_restful import Resource, reqparse
 from flask import Flask
 from flask_restful import Api
 
-from controllers import SearchBar
-from controllers import Audio
+# from controllers import SearchBar
+# from controllers import Audio
 
 app = Flask(__name__)
 api = Api(app)
