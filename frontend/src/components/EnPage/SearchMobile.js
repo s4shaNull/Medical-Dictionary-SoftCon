@@ -88,6 +88,7 @@ function SearchMobile(props) {
           onHover={handleOnHover}
           onSelect={handleOnSelect}
           onFocus={handleOnFocus}
+          inputDebounce={300}
           autoFocus
           onClear={handleOnClear}
           formatResult={formatResult}
