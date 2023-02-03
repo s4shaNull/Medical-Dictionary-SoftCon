@@ -30,7 +30,6 @@ function NavBar(props) {
             className="header__weblang"
             onClick={() => {
               props.setShowWebLang(!props.showWebLang);
-              console.log(props.showWebLang);
             }}
           >
             <div className="header__weblang-item header__weblang-menu">
@@ -68,7 +67,6 @@ function NavBar(props) {
                           key={props.language}
                           onClick={() => {
                             props.setLanguage(language);
-                            console.log(props.language);
                           }}
                         >
                           <input

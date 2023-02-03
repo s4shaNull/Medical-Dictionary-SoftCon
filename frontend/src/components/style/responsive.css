@@ -86,6 +86,10 @@
     right: 10%;
   }
 
+  .margin-top {
+    margin-top: 50%;
+  }
+
   /* Search Section */
   .header__search__text {
     font-size: 2.8rem;
@@ -105,7 +109,7 @@
 
   /* Search Result */
   .result-img-btn {
-    font-size: 2.0vh;
+    font-size: 2vh;
   }
 
   .result-item__term-header h1 {
@@ -186,8 +190,7 @@
   }
 }
 
-
-@media (min-height: 200px) and (max-height: 500px){
+@media (min-height: 200px) and (max-height: 500px) {
   .modal_result-header {
     font-size: 4vh;
     height: 60px;
