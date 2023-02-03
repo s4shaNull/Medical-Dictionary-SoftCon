@@ -3,6 +3,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import os 
 from dotenv import load_dotenv, find_dotenv
+from retry import retry
 
 load_dotenv(find_dotenv())
 
@@ -14,8 +15,18 @@ config = {
     'database' : os.getenv("MYSQL_DATABASE")
 }
 
-engine_name = f"mariadb://{config['user']}:{config['password']}@{config['host']}:{config['port']}/{config['database']}"
-engine = create_engine(engine_name) #'mariadb://username:password@localhost:3306/database'
+@retry(tries=5, delay=1)
+def connect_to_db():
+    engine_name = f"mariadb://{config['user']}:{config['password']}@{config['host']}:{config['port']}/{config['database']}"
+    engine = create_engine(engine_name) #'mariadb://username:password@localhost:3306/database'
+    conn = engine.connect()
+    return conn
+
+engine = connect_to_db()
+
+# engine_name = f"mariadb://{config['user']}:{config['password']}@{config['host']}:{config['port']}/{config['database']}"
+# engine = create_engine(engine_name) #'mariadb://username:password@localhost:3306/database'
+    
 Base = declarative_base()
 
 class Dict(Base):
@@ -28,4 +39,23 @@ class Dict(Base):
 
 Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
-session = Session()
+# session = Session()
+
+# Base.metadata.create_all(bind=engine)
+# Session = sessionmaker(bind=engine)
+
+# def get_session():
+#     session = Session()
+#     try:
+#         yield session
+#     finally:
+#         session.close()
+
+# def get_session():
+#     engine = connect_to_db()
+#     Session = sessionmaker(bind=engine)
+#     session = Session()
+#     try:
+#         yield session
+#     finally:
+#         session.close()

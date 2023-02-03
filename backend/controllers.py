@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker
 from flask import Flask, request, jsonify, session
 from gtts import gTTS
 from os import path
-from models import Dict, session
+from models import *
 
 
 class SearchBar(Resource):
@@ -14,11 +14,12 @@ class SearchBar(Resource):
         if word == "" or lang == "":
             return jsonify([])
         else:
+            session = Session()
             if lang == "en":
                 query = session.query(Dict).filter(Dict.en.like(f"{word}%")).limit(20)
             if lang == "vn":
                 query = session.query(Dict).filter(Dict.vn.like(f"{word}%")).limit(20)
-
+            session.close()
             # Convert the query object to a list of dictionaries
             result = [{k: v for k, v in row.__dict__.items() if k != '_sa_instance_state'} for row in query]
             return jsonify(result)
@@ -30,12 +31,19 @@ class Audio(Resource):
 
         if en_word == None or vi_word == None:
             return False
+       
         else:
-            link_to_en_mp3 = "static/"+en_word+"1.mp3"
-            link_to_vi_mp3 = "static/"+vi_word+"2.mp3"
-            if not (path.exists(link_to_en_mp3) and path.exists(link_to_vi_mp3)):
-                tts = gTTS(en_word, lang="en", slow=True)
-                tts.save(link_to_en_mp3)
-                tts = gTTS(vi_word, lang="vi", slow=True)
-                tts.save(link_to_vi_mp3)
-                return "File created!"
+            session = Session()
+            query = session.query(Dict).filter(Dict.en == en_word).first()
+            session.close()
+            if query is None:
+                return "Word not found in the database."
+            else:
+                link_to_en_mp3 = "static/" + en_word + "1.mp3"
+                link_to_vi_mp3 = "static/" + vi_word + "2.mp3"
+                if not (path.exists(link_to_en_mp3) and path.exists(link_to_vi_mp3)):
+                    tts = gTTS(en_word, lang="en", slow=True)
+                    tts.save(link_to_en_mp3)
+                    tts = gTTS(vi_word, lang="vi", slow=True)
+                    tts.save(link_to_vi_mp3)
+                    return "File created!"
