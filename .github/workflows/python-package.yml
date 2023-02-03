@@ -18,5 +18,5 @@ jobs:
     - name: Run tests
       run: |
         # Run your test command here. For example:
-        python test.py
+        python backend/test.py
 
