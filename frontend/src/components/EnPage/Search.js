@@ -4,8 +4,8 @@ import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import "../style/base.css";
 import "../style/main.css";
 import "../style/responsive.css";
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 
 function Search(props) {
 
