@@ -9,7 +9,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 function Search(props) {
 
-  // const [items, setItems] = useState([]);
+
   // const fromEng = props.fromEng;
   // // note: the id field is mandatory
 
@@ -68,6 +68,7 @@ function Search(props) {
   const [value, setValue] = useState('');
   const [inputValue, setInputValue] = useState('');
   const fromEng = props.fromEng;
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     const getResults = async () => {
@@ -76,10 +77,15 @@ function Search(props) {
           params: { word: inputValue, lang: fromEng ? "en" : "vn" },
         });
         var myOptions = []
+        var myItems = []
         for (var i = 0; i < response.data.length; i++) {
           myOptions.push(response.data[i].vn)
+          myItems.push(response.data[i])
         }
         setOptions(myOptions)
+        setItems(myItems)
+        console.log("Options before filter: " + options)
+        console.log("Items before filter: " + items[0].en)
 
 
       } catch (error) {
@@ -125,8 +131,29 @@ function Search(props) {
           autoHighlight
           options={options}
           onChange={(event, newValue) => {
-            setOptions(newValue ? [newValue, ...options] : options);
             setValue(newValue);
+            axios
+              .get("http://localhost:5000/audio", {
+                params: { en_word: newValue, vi_word: newValue },
+              })
+              .then((response) => { });
+
+            console.log("Options:" + options);
+
+            const res = items.filter((item) => {
+              return item.en == newValue
+            })[0]
+            console.log("Value: " + newValue);
+            console.log("Items: " + items[0].en);
+            console.log("JSON: " + res);
+
+            props.setShowResult(!props.showResult);
+            props.setResult({
+              en: `${res.en}`,
+              vn: `${res.vn}`,
+              type: `${res.word_type}`,
+              type_vn: `${res.word_type_vn}`,
+            });
           }}
           onInputChange={(event, newInputValue) => {
             setInputValue(newInputValue);
