@@ -7,15 +7,14 @@ import "../style/responsive.css";
 
 function Search(props) {
   const [items, setItems] = useState([]);
-  const fromEng = props.fromEng;
   // note: the id field is mandatory
 
   const handleOnSearch = (string) => {
-    if (string != "") {
+    if (string !== "") {
       const loadData = async () => {
         // THE ADDR BELOW MUST BE THE DOMAIN NAME OF THE CLOUD SERVER WHEN DEPLOYED!
         const response = await axios.get("http://localhost:5000/search_bar", {
-          params: { word: string, lang: fromEng ? "en" : "vn" },
+          params: { word: string, lang: props.fromEng ? "en" : "vn" },
         });
         setItems(response.data);
       };
@@ -56,7 +55,7 @@ function Search(props) {
     return (
       <>
         <span style={{}}>
-          {fromEng ? item.en : item.vn} ({item.word_type})
+          {props.fromEng ? item.en : item.vn} ({item.word_type})
         </span>
       </>
     );
@@ -83,8 +82,8 @@ function Search(props) {
           autoFocus
           onClear={handleOnClear}
           formatResult={formatResult}
-          fuseOptions={{ keys: fromEng ? ["en"] : ["vn"] }}
-          resultStringKeyName={fromEng ? ["en"] : ["vn"]}
+          fuseOptions={{ keys: props.fromEng ? ["en"] : ["vn"] }}
+          resultStringKeyName={props.fromEng ? ["en"] : ["vn"]}
           styling={{
             lineColor: "#c92127",
           }}
