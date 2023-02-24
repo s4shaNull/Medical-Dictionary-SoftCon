@@ -24,7 +24,7 @@ export default function Footer(props) {
             <p>Any feedback for our team?</p>
             <a
               className="email footer-social-icon"
-              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdkyfjztFYCfyXXu2UGEXvLIowQXgjtFDNuqDyYUFfV6mfhkA/viewform"
               target="_blank"
               rel="noreferrer"
             >
