@@ -4,12 +4,10 @@ import { ReactSearchAutocomplete } from "react-search-autocomplete";
 import "../style/base.css";
 import "../style/main.css";
 import "../style/responsive.css";
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 
 function Search(props) {
-
-
   // const fromEng = props.fromEng;
   // // note: the id field is mandatory
 
@@ -65,8 +63,8 @@ function Search(props) {
   //   );
   // };
   const [options, setOptions] = useState([]);
-  const [value, setValue] = useState('');
-  const [inputValue, setInputValue] = useState('');
+  const [value, setValue] = useState("");
+  const [inputValue, setInputValue] = useState("");
   const fromEng = props.fromEng;
   const [items, setItems] = useState([]);
 
@@ -76,25 +74,23 @@ function Search(props) {
         const response = await axios.get("http://localhost:5000/search_bar", {
           params: { word: inputValue, lang: fromEng ? "en" : "vn" },
         });
-        var myOptions = []
-        var myItems = []
+        var myOptions = [];
+        var myItems = [];
         for (var i = 0; i < response.data.length; i++) {
-          myOptions.push(response.data[i].vn)
-          myItems.push(response.data[i])
+          myOptions.push(response.data[i].vn);
+          myItems.push(response.data[i]);
         }
-        setOptions(myOptions)
-        setItems(myItems)
-        console.log("Options before filter: " + options)
-        console.log("Items before filter: " + items[0].en)
-
-
+        setOptions(myOptions);
+        setItems(myItems);
+        console.log("Options before filter: " + options);
+        console.log("Items before filter: " + items[0].en);
       } catch (error) {
         console.error(error);
       }
     };
 
     getResults();
-  }, [value, inputValue]);
+  }, [value, inputValue, fromEng, options, items]);
 
   return (
     <div className="header__search">
@@ -130,19 +126,26 @@ function Search(props) {
           autoComplete
           autoHighlight
           options={options}
+          getOptionLabel={(option) => (props.fromEng ? option.en : option.vn)}
+          sx={{
+            boxSizing: "border-box",
+            width: "100%",
+            boxShadow: "none",
+            ".MuiOutlinedInput-notchedOutline": { border: 0 },
+          }}
           onChange={(event, newValue) => {
             setValue(newValue);
             axios
               .get("http://localhost:5000/audio", {
                 params: { en_word: newValue, vi_word: newValue },
               })
-              .then((response) => { });
+              .then((response) => {});
 
             console.log("Options:" + options);
 
             const res = items.filter((item) => {
-              return item.en == newValue
-            })[0]
+              return item.en === newValue;
+            })[0];
             console.log("Value: " + newValue);
             console.log("Items: " + items[0].en);
             console.log("JSON: " + res);
