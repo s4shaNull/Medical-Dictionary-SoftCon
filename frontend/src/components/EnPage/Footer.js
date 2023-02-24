@@ -21,10 +21,13 @@ export default function Footer(props) {
         </div>
         <div className="copy-right">
           <div className="footer-connection">
-            <a className="github footer-social-icon" id="icon-github" href="#">
-              <i className="fa-brands fa-github" />
-            </a>
-            <a className="email footer-social-icon" href="#">
+            <p>Any feedback for our team?</p>
+            <a
+              className="email footer-social-icon"
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              target="_blank"
+              rel="noreferrer"
+            >
               <i className="fa-regular fa-envelope" />
             </a>
           </div>

@@ -34,9 +34,11 @@
 /* LOGO */
 .header__logo {
   height: 55px;
-  /* display: flex; */
-  /* flex-direction: row;
-    flex-wrap: wrap; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  gap: 12px;
 }
 
 .header_logo-img {
@@ -47,6 +49,11 @@
 .header_logo-name {
   font-size: 1.8rem;
   font-weight: 700;
+}
+
+p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* Header Middle */
@@ -556,6 +563,10 @@
   /* border-radius: 0 15px 15px 0; */
   text-align: center;
   padding-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: revert;
 }
 
 .footer-connection h3 {
@@ -565,7 +576,7 @@
 }
 
 .footer-social-icon {
-  margin-top: 2em;
+  margin-top: 0.5em;
 }
 
 .footer-social-icon i {
