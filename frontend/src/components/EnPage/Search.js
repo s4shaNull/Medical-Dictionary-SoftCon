@@ -16,6 +16,7 @@ function Search(props) {
         const response = await axios.get("http://localhost:5000/search_bar", {
           params: { word: string, lang: props.fromEng ? "en" : "vn" },
         });
+        console.log(response.data);
         setItems(response.data);
       };
       loadData();
