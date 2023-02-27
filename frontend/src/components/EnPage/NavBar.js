@@ -13,7 +13,7 @@ function NavBar(props) {
         <div className="main-header">
           <div className="header__logo">
             <img src={logo} alt="" className="header_logo-img" />
-            <p className="header_logo-name">Softcon</p>
+            <p className="header_logo-name">VinUniversity</p>
           </div>
           <div className="header__navbar">
             <div className="header__navbar-normal">

@@ -21,7 +21,7 @@ export default function Footer(props) {
         </div>
         <div className="copy-right">
           <div className="footer-connection">
-            <p>Any feedback for our team?</p>
+            <p>{props.getTranslation("feedback", props.language)}</p>
             <a
               className="email footer-social-icon"
               href="https://docs.google.com/forms/d/e/1FAIpQLSdkyfjztFYCfyXXu2UGEXvLIowQXgjtFDNuqDyYUFfV6mfhkA/viewform"

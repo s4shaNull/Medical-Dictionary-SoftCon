@@ -34,27 +34,28 @@
 /* LOGO */
 .header__logo {
   height: 55px;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: center; */
   /* flex-wrap: wrap; */
   gap: 12px;
 }
 
 .header_logo-img {
   width: 40px;
-  margin-left: 18%;
+  margin-left: 20%;
+  margin-right: auto;
 }
 
 .header_logo-name {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
-p {
+/* p {
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
+} */
 
 /* Header Middle */
 

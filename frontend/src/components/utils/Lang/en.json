@@ -1,9 +1,10 @@
 {
-  "title": "MEDICAL DICTIONARY",
+  "title": "E-V MEDICAL DICTIONARY WITH PRONUNCIATION",
   "vn": "Vietnamese",
   "en": "English",
   "search": "Start your search!",
   "result": "search result",
   "display-image": "display image",
-  "back-to-top": "Back to top"
+  "back-to-top": "Back to top",
+  "feedback": " Please send your feedback here"
 }
